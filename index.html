@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17251f">
+    <meta name="description" content="Vidhitack — “Advocate Diary”, a case workspace for Indian legal professionals.">
+    <title>Vidhitack — “Advocate Diary”</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="login-screen" id="login-screen">
+      <div class="login-panel">
+        <a class="login-brand" href="#" aria-label="Vidhitack home">
+          <span class="login-brand-mark">V</span>
+          <span class="login-brand-copy"><strong>Vidhitack</strong><small>“Advocate Diary”</small></span>
+        </a>
+        <div class="login-intro">
+          <div class="eyebrow">A CONSIDERED SPACE FOR YOUR PRACTICE</div>
+          <h1>Your cases,<br>in good order.</h1>
+          <p>Keep case files, hearing notes, and legal references together in one private workspace.</p>
+        </div>
+        <div class="login-quote">“Clear records make room for clearer thinking.”</div>
+        <div class="login-footer">A workspace for advocates in India</div>
+      </div>
+      <div class="login-form-panel">
+        <div class="login-form-wrap">
+          <div class="login-form-heading"><span class="eyebrow">ADVOCATE WORKSPACE</span><h2>Welcome back</h2><p>Sign in to continue to your case workspace.</p></div>
+          <form id="login-form">
+            <div class="form-field"><label for="login-email">Email address</label><input id="login-email" name="email" type="email" required autocomplete="username" placeholder="you@example.in"></div>
+            <div class="form-field"><label for="login-password">Password</label><input id="login-password" name="password" type="password" required autocomplete="current-password" placeholder="Enter your password"></div>
+            <div class="login-error" id="login-error" role="alert" hidden></div>
+            <button class="button button-primary login-submit" type="submit">Sign in <span>→</span></button>
+          </form>
+          <div class="login-storage-note"><span>✳</span><p><strong>Your workspace</strong><br>Your case records and notes are saved in this browser.</p></div>
+          <div class="login-security-note"><button type="button" data-action="show-login-disclaimer">Privacy &amp; data information</button></div>
+        </div>
+      </div>
+    </section>
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="dashboard" aria-label="Vidhitack home">
+          <span class="brand-mark" aria-hidden="true">V</span>
+          <span class="brand-copy"><strong>Vidhitack</strong><small>“Advocate Diary”</small></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Overview</button>
+          <button class="nav-item" data-page="my-cases"><span class="nav-icon">▤</span>My cases <span class="nav-count" id="case-nav-count">0</span></button>
+          <button class="nav-item" data-page="calendar"><span class="nav-icon">▦</span>Calendar</button>
+          <button class="nav-item" data-page="case-library"><span class="nav-icon">⌕</span>Case library</button>
+          <button class="nav-item" data-page="diary"><span class="nav-icon">▧</span>Digital diary</button>
+        </nav>
+
+        <div class="workspace-label resources-label">YOUR RESOURCES</div>
+        <nav class="primary-nav" aria-label="Resources">
+          <button class="nav-item" data-page="legal-resources"><span class="nav-icon">▧</span>Legal resources</button>
+          <button class="nav-item" data-page="legal-updates"><span class="nav-icon">◷</span>Legal updates <span class="unread-dot" aria-label="New updates"></span></button>
+          <button class="nav-item" data-page="feedback"><span class="nav-icon">✉</span>Feedback</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="privacy-card">
+            <span class="privacy-icon">✳</span>
+            <strong>Your workspace</strong>
+            <p>Your case records, notes, and uploaded files are saved in this browser.</p>
+          </div>
+          <button class="profile-button" data-page="profile">
+            <span class="avatar">CA</span>
+            <span class="profile-copy"><strong>Advocate</strong><small>India</small></span>
+            <span class="profile-more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumb"><span>Workspace</span><span class="crumb-divider">/</span><strong id="breadcrumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="global-search">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" id="global-search" placeholder="Search cases, files, notes…" autocomplete="off" aria-label="Search workspace">
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" id="notification-button" aria-label="Notifications"><span>♧</span><i></i></button>
+            <button class="top-avatar" data-page="profile" aria-label="Open profile">CA</button>
+          </div>
+        </header>
+
+        <div class="page-content" id="page-content" tabindex="-1"></div>
+        <footer class="app-footer"><span>VIDHITACK</span><span>“Advocate Diary” · Built for a more considered practice.</span><span class="workspace-note">India</span></footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal-content"></section>
+    </div>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <input type="file" id="quick-upload-input" multiple hidden>
+    <script src="app.js"></script>
+  </body>
+</html>
